@@ -1,0 +1,14 @@
+version: '3'
+services:
+  php-app:
+    build:
+      context: .  
+    ports:
+      - "8080:80"  
+
+  rabbitmq:
+    image: "rabbitmq:3.8.34-management" #Voir quelle version semble plus adaptée car latest pas bonne idée (télécharge les màj récentes potentiellement dangereuses)
+    ports:
+      - "15672:15672"  # Port pour l'interface de gestion RabbitMQ (facultatif)
+      - "5672:5672"    # Port par défaut pour RabbitMQ
+
